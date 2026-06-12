@@ -14,8 +14,8 @@ public class Main {
         JSearchClient client = new JSearchClient(apiKey);
 
         if (repository.findAll().isEmpty()) {
-            System.out.println("БД пустая, загружаю данные из файла...");
-            var vacancies = client.searchFromFile("/Users/kirilldobranitskiy/Downloads/example.json");
+            System.out.println("БД пустая, загружаю данные из API...");
+            var vacancies = client.search("java developer", 1);
             repository.saveAll(vacancies);
         }
 
